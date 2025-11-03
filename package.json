@@ -5,7 +5,15 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon src/index.js"
+    "start": "nodemon src/index.js",
+    "model:generate": "node scripts/generateModel.js",
+    "db:create": "sequelize db:create",
+    "db:migrate": "sequelize db:migrate --config src/config/config.json --migrations-path src/migrations",
+    "db:migrate:undo": "sequelize db:migrate:undo --config src/config/config.json --migrations-path src/migrations",
+    "db:seed": "sequelize db:seed:all",
+    "db:drop": "sequelize db:drop",
+    "db:info": "sequelize db:info",
+    "db:seed:undo": "sequelize db:seed:undo"
   },
   "author": "",
   "license": "ISC",
@@ -17,6 +25,7 @@
     "nodemon": "^3.1.10",
     "pg": "^8.16.3",
     "pg-hstore": "^2.3.4",
+    "psql": "^0.0.1",
     "sequelize": "^6.37.7",
     "sequelize-cli": "^6.6.3",
     "winston": "^3.18.3"
